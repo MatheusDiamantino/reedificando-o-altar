@@ -16,8 +16,8 @@ final class LiveRepository
         $where = '';
         $params = [];
         if ($busca !== null) {
-            $where = 'WHERE titulo LIKE :busca OR descricao LIKE :busca';
-            $params['busca'] = '%' . $busca . '%';
+            $where = 'WHERE titulo LIKE :busca_titulo OR descricao LIKE :busca_descricao';
+            $params['busca_titulo'] = $params['busca_descricao'] = '%' . $busca . '%';
         }
 
         $total = (int) Database::value("SELECT COUNT(*) FROM lives {$where}", $params);
