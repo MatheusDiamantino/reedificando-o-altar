@@ -1,0 +1,8 @@
+{
+  "name": "reedificando-o-altar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pacote": "node scripts/pacote.mjs"
+  }
+}

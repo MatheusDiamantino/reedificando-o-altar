@@ -1,0 +1,100 @@
+@import '@fontsource-variable/cinzel';
+@import '@fontsource-variable/montserrat';
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #0a0a0a;
+  --color-coal: #141414;
+  --color-gold: #ffd000;
+  --color-gold-deep: #c99a00;
+  --color-gold-pale: #fff6c2;
+  --color-ember: #ffff00;
+  --color-paper: #ffffff;
+  --color-ash: #8c8c8c;
+
+  --font-display: 'Cinzel Variable', 'Times New Roman', serif;
+  --font-sans: 'Montserrat Variable', system-ui, sans-serif;
+
+  --ease-altar: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --animate-grain: grain 0.8s steps(4) infinite;
+  --animate-gold-shine: gold-shine 6s linear infinite;
+  --animate-live-pulse: live-pulse 1.8s ease-out infinite;
+  --animate-flicker: flicker 2.4s ease-in-out infinite;
+  --animate-scroll-hint: scroll-hint 1.8s ease-in-out infinite;
+  --animate-surgir: surgir 0.8s var(--ease-altar) both;
+  --animate-palavra: palavra 0.8s var(--ease-altar) both;
+
+  @keyframes grain {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(-3%, 2%);
+    }
+    50% {
+      transform: translate(2%, -3%);
+    }
+    75% {
+      transform: translate(-2%, -1%);
+    }
+  }
+  @keyframes gold-shine {
+    to {
+      background-position: -200% 0;
+    }
+  }
+  @keyframes live-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgb(255 255 0 / 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgb(255 255 0 / 0);
+    }
+  }
+  @keyframes flicker {
+    0%,
+    100% {
+      transform: scaleY(1) skewX(0deg);
+      opacity: 1;
+    }
+    33% {
+      transform: scaleY(1.06) skewX(-2deg);
+      opacity: 0.92;
+    }
+    66% {
+      transform: scaleY(0.96) skewX(2deg);
+      opacity: 1;
+    }
+  }
+  @keyframes surgir {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+  @keyframes palavra {
+    from {
+      transform: translateY(110%);
+    }
+  }
+  @keyframes scroll-hint {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(200%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    @apply bg-ink font-sans text-paper antialiased selection:bg-gold selection:text-ink;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-3 outline-gold;
+  }
+}
